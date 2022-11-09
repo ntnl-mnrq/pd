@@ -1,0 +1,444 @@
+#N canvas -9 -9 1920 1026 12;
+#X obj 29 182 noise~;
+#X obj 33 237 *~ 0.5;
+#X obj 62 459 *~;
+#X obj 83 11 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 60 55 1 1000;
+#X obj 233 58 delay 1000;
+#X obj 232 90 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X text 256 89 bang solo como feedback visual;
+#X msg 216 134 0.5 1500;
+#X text 114 54 attack;
+#X text 282 136 decay;
+#X obj 347 232 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 480 163 sustain;
+#X text 15 89 1000ms de ataque hasta 1;
+#X text 131 159 1500 ms de decay de 1 hasta 0.5;
+#X text 237 203 0.5 sostenido por 3000 ms \, 4500 = 1500 + 3000;
+#X msg 346 275 0 1000;
+#X text 414 275 release;
+#X text 336 304 de 0.5 a 0 en 1000 ms;
+#X text 155 369 1________ / / \  / \  / \  / ____________ __0.5 / ^
+/ | \  / | \  /___________________|________\  | A | D | S | R | 1000ms
+1500ms 1500ms 1000ms;
+#X obj 65 517 *~ 0.25;
+#X obj 170 482 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X obj 694 92 noise~;
+#X obj 694 145 *~ 0.5;
+#X obj 698 313 *~;
+#X obj 801 51 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 896 119 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 816 110 attack;
+#X text 906 171 decay;
+#X obj 995 199 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1007 175 sustain;
+#X text 994 254 release;
+#X obj 707 453 dac~;
+#X obj 808 345 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X obj 696 199 hip~ 4000;
+#X msg 803 87 1 5;
+#X obj 897 87 delay 5;
+#X msg 894 150 0.5 100;
+#X obj 996 150 delay 100;
+#X msg 994 229 0 150;
+#X text 693 45 snare;
+#X obj 701 383 *~ 0.5;
+#X obj 1331 74 noise~;
+#X obj 1357 385 *~;
+#X obj 1453 46 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1548 114 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1468 105 attack;
+#X text 1558 166 decay;
+#X obj 1647 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1659 170 sustain;
+#X text 1646 249 release;
+#X obj 1366 525 dac~;
+#X obj 1467 417 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X msg 1455 82 1 5;
+#X obj 1549 82 delay 5;
+#X obj 1360 455 *~ 0.5;
+#X text 1330 27 kick;
+#X obj 1331 127 *~ 1;
+#X obj 1333 181 bp~ 150 4;
+#X obj 1333 222 *~ 20;
+#X obj 1323 281 clip~ -0.9 0.9;
+#X obj 1235 132 hip~ 8000;
+#X obj 1233 177 *~ 0.1;
+#X msg 1546 145 0.25 50;
+#X obj 1648 145 delay 50;
+#X msg 1646 224 0 300;
+#X text 1132 237 highpass filtered noise for transient;
+#X text 1133 309 scaling the volume by 20 (super loud!);
+#X text 1178 332 we need this clip~ after scaling the volume that high
+;
+#X obj 67 582 dac~;
+#X obj 292 666 osc~ 440;
+#X obj 389 667 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 385 708 1 100;
+#X obj 469 708 del 100;
+#X text 491 685 del = delay;
+#X msg 470 744 0 150;
+#X obj 390 800 line;
+#X obj 305 869 *~;
+#X obj 301 916 dac~;
+#X floatatom 391 838 5 0 0 0 - - -;
+#X obj 860 658 osc~ 440;
+#X obj 941 659 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 941 700 1 100;
+#X obj 1005 700 del 100;
+#X msg 1005 736 0 150;
+#X obj 861 861 *~;
+#X obj 941 769 line~;
+#X obj 860 920 dac~;
+#X obj 1079 691 loadbang;
+#X obj 1079 734 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1079 778 metro 20;
+#X obj 1079 829 snapshot~;
+#X floatatom 1079 882 5 0 0 0 - - -;
+#X obj 134 290 line~;
+#X obj 810 257 line~;
+#X obj 1462 252 line~;
+#X text 433 792 incorrecto usar line para señales \, funciona pero
+glitchea porque no está pensado para operar señales \; usar line~
+o vline~;
+#X obj 1217 652 osc~ 440;
+#X obj 1298 653 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 1298 694 1 100;
+#X obj 1362 694 del 100;
+#X msg 1362 730 0 150;
+#X obj 1218 855 *~;
+#X obj 1217 914 dac~;
+#X obj 1436 685 loadbang;
+#X obj 1436 728 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1436 772 metro 20;
+#X obj 1436 823 snapshot~;
+#X floatatom 1436 876 5 0 0 0 - - -;
+#X obj 1296 762 vline~;
+#X text 1270 812 sample accurate;
+#X obj 1527 660 osc~ 440;
+#X obj 1608 661 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1528 863 *~;
+#X obj 1527 922 dac~;
+#X obj 1797 682 loadbang;
+#X obj 1797 725 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
+1 1;
+#X obj 1797 769 metro 20;
+#X obj 1797 795 snapshot~;
+#X floatatom 1797 873 5 0 0 0 - - -;
+#X obj 1606 770 vline~;
+#X text 1436 587 target attack \, target time delay \, target time
+delay \, ... tener en cuenta que el clock del attack y de todos los
+delays comienzan simultaneamente;
+#X obj 966 831 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 1389 848 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 1770 848 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 395 164 delay 4500;
+#X msg 1593 712 1 100 \, 0 150 100;
+#X obj 114 1108 noise~;
+#X obj 114 1161 *~ 0.5;
+#X obj 118 1329 *~;
+#X obj 221 1067 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 316 1135 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 236 1126 attack;
+#X text 326 1187 decay;
+#X obj 415 1215 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 427 1191 sustain;
+#X text 414 1270 release;
+#X obj 127 1469 dac~;
+#X obj 228 1361 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X obj 116 1215 hip~ 4000;
+#X msg 223 1103 1 5;
+#X obj 317 1103 delay 5;
+#X msg 314 1166 0.5 100;
+#X obj 416 1166 delay 100;
+#X msg 414 1245 0 150;
+#X text 113 1061 snare;
+#X obj 121 1399 *~ 0.5;
+#X obj 230 1273 line~;
+#X obj 569 1115 noise~;
+#X obj 569 1168 *~ 0.5;
+#X obj 573 1336 *~;
+#X obj 676 1074 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 582 1476 dac~;
+#X obj 683 1368 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X obj 571 1222 hip~ 4000;
+#X text 568 1068 snare;
+#X obj 576 1406 *~ 0.5;
+#X obj 750 1245 vline~;
+#X msg 682 1144 1 5 \, 0.5 100 5 \, 0 150 105;
+#X obj 1005 1069 noise~;
+#X obj 1017 1339 *~;
+#X obj 1127 1041 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1222 1109 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1142 1100 attack;
+#X text 1232 1161 decay;
+#X obj 1321 1189 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 1333 1165 sustain;
+#X text 1320 1244 release;
+#X obj 1027 1472 dac~;
+#X obj 1127 1371 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X msg 1129 1077 1 5;
+#X obj 1223 1077 delay 5;
+#X obj 1020 1409 *~ 0.5;
+#X text 1025 1022 kick;
+#X obj 1005 1122 *~ 1;
+#X obj 1007 1176 bp~ 150 4;
+#X obj 1007 1217 *~ 20;
+#X obj 997 1276 clip~ -0.9 0.9;
+#X obj 909 1127 hip~ 8000;
+#X obj 907 1172 *~ 0.1;
+#X msg 1220 1140 0.25 50;
+#X obj 1322 1140 delay 50;
+#X msg 1320 1219 0 300;
+#X obj 1136 1247 line~;
+#X obj 1516 1088 noise~;
+#X obj 1528 1358 *~;
+#X obj 1638 1060 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1623 1370 ui.scope~ @size 150 100 @receive "(null)" @send "(null)"
+@pinned 0 @background_color 0.93 0.93 0.93 1 @border_color 0.6 0.6
+0.6 1 @label_color 0 0 0 1 @active_color 0 0.75 1 1 @fontname "Helvetica"
+@fontweight "normal" @fontslant "roman" @fontsize 11 @label "(null)"
+@label_inner 0 @label_side "top" @label_align "left" @label_valign
+"top" @label_margins 0 0 @max 1 @min -1 @window 2048 @refresh 40;
+#X obj 1525 1399 *~ 0.5;
+#X text 1536 1041 kick;
+#X obj 1516 1141 *~ 1;
+#X obj 1518 1195 bp~ 150 4;
+#X obj 1518 1236 *~ 20;
+#X obj 1508 1295 clip~ -0.9 0.9;
+#X obj 1420 1146 hip~ 8000;
+#X obj 1418 1191 *~ 0.1;
+#X obj 1528 1457 dac~;
+#X msg 1630 1143 1 5 \, 0.25 50 5 \, 0 300 55;
+#X obj 1645 1266 vline~;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 20 0;
+#X connect 2 0 21 0;
+#X connect 3 0 4 0;
+#X connect 3 0 5 0;
+#X connect 4 0 93 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 6 0 125 0;
+#X connect 8 0 93 0;
+#X connect 11 0 16 0;
+#X connect 16 0 93 0;
+#X connect 20 0 69 0;
+#X connect 20 0 69 1;
+#X connect 22 0 23 0;
+#X connect 23 0 34 0;
+#X connect 24 0 33 0;
+#X connect 24 0 41 0;
+#X connect 25 0 35 0;
+#X connect 25 0 36 0;
+#X connect 26 0 37 0;
+#X connect 26 0 38 0;
+#X connect 29 0 39 0;
+#X connect 34 0 24 0;
+#X connect 35 0 94 0;
+#X connect 36 0 26 0;
+#X connect 37 0 94 0;
+#X connect 38 0 29 0;
+#X connect 39 0 94 0;
+#X connect 41 0 32 0;
+#X connect 41 0 32 1;
+#X connect 42 0 57 0;
+#X connect 42 0 61 0;
+#X connect 43 0 52 0;
+#X connect 43 0 55 0;
+#X connect 44 0 53 0;
+#X connect 44 0 54 0;
+#X connect 45 0 63 0;
+#X connect 45 0 64 0;
+#X connect 48 0 65 0;
+#X connect 53 0 95 0;
+#X connect 54 0 45 0;
+#X connect 55 0 51 0;
+#X connect 55 0 51 1;
+#X connect 57 0 58 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 60 0 43 0;
+#X connect 61 0 62 0;
+#X connect 62 0 60 0;
+#X connect 63 0 95 0;
+#X connect 64 0 48 0;
+#X connect 65 0 95 0;
+#X connect 70 0 77 0;
+#X connect 71 0 72 0;
+#X connect 71 0 73 0;
+#X connect 72 0 76 0;
+#X connect 73 0 75 0;
+#X connect 75 0 76 0;
+#X connect 76 0 79 0;
+#X connect 77 0 78 0;
+#X connect 77 0 78 1;
+#X connect 79 0 77 1;
+#X connect 80 0 85 0;
+#X connect 81 0 82 0;
+#X connect 81 0 83 0;
+#X connect 82 0 86 0;
+#X connect 83 0 84 0;
+#X connect 84 0 86 0;
+#X connect 85 0 87 0;
+#X connect 85 0 87 1;
+#X connect 86 0 85 1;
+#X connect 86 0 91 0;
+#X connect 88 0 89 0;
+#X connect 89 0 90 0;
+#X connect 90 0 91 0;
+#X connect 91 0 92 0;
+#X connect 91 0 122 0;
+#X connect 93 0 2 1;
+#X connect 94 0 24 1;
+#X connect 95 0 43 1;
+#X connect 97 0 102 0;
+#X connect 98 0 99 0;
+#X connect 98 0 100 0;
+#X connect 99 0 109 0;
+#X connect 100 0 101 0;
+#X connect 101 0 109 0;
+#X connect 102 0 103 0;
+#X connect 102 0 103 1;
+#X connect 104 0 105 0;
+#X connect 105 0 106 0;
+#X connect 106 0 107 0;
+#X connect 107 0 108 0;
+#X connect 107 0 123 0;
+#X connect 109 0 102 1;
+#X connect 109 0 107 0;
+#X connect 111 0 113 0;
+#X connect 112 0 126 0;
+#X connect 113 0 114 0;
+#X connect 113 0 114 1;
+#X connect 115 0 116 0;
+#X connect 116 0 117 0;
+#X connect 117 0 118 0;
+#X connect 118 0 119 0;
+#X connect 118 0 124 0;
+#X connect 120 0 113 1;
+#X connect 120 0 118 0;
+#X connect 125 0 11 0;
+#X connect 126 0 120 0;
+#X connect 127 0 128 0;
+#X connect 128 0 139 0;
+#X connect 129 0 138 0;
+#X connect 129 0 146 0;
+#X connect 130 0 140 0;
+#X connect 130 0 141 0;
+#X connect 131 0 142 0;
+#X connect 131 0 143 0;
+#X connect 134 0 144 0;
+#X connect 139 0 129 0;
+#X connect 140 0 147 0;
+#X connect 141 0 131 0;
+#X connect 142 0 147 0;
+#X connect 143 0 134 0;
+#X connect 144 0 147 0;
+#X connect 146 0 137 0;
+#X connect 146 0 137 1;
+#X connect 147 0 129 1;
+#X connect 148 0 149 0;
+#X connect 149 0 154 0;
+#X connect 150 0 153 0;
+#X connect 150 0 156 0;
+#X connect 151 0 158 0;
+#X connect 154 0 150 0;
+#X connect 156 0 152 1;
+#X connect 156 0 152 0;
+#X connect 157 0 150 1;
+#X connect 158 0 157 0;
+#X connect 159 0 174 0;
+#X connect 159 0 178 0;
+#X connect 160 0 169 0;
+#X connect 160 0 172 0;
+#X connect 161 0 170 0;
+#X connect 161 0 171 0;
+#X connect 161 0 197 0;
+#X connect 162 0 180 0;
+#X connect 162 0 181 0;
+#X connect 165 0 182 0;
+#X connect 170 0 183 0;
+#X connect 171 0 162 0;
+#X connect 172 0 168 0;
+#X connect 172 0 168 1;
+#X connect 174 0 175 0;
+#X connect 175 0 176 0;
+#X connect 176 0 177 0;
+#X connect 177 0 160 0;
+#X connect 178 0 179 0;
+#X connect 179 0 177 0;
+#X connect 180 0 183 0;
+#X connect 181 0 165 0;
+#X connect 182 0 183 0;
+#X connect 183 0 160 1;
+#X connect 184 0 190 0;
+#X connect 184 0 194 0;
+#X connect 185 0 187 0;
+#X connect 185 0 188 0;
+#X connect 186 0 197 0;
+#X connect 190 0 191 0;
+#X connect 191 0 192 0;
+#X connect 192 0 193 0;
+#X connect 193 0 185 0;
+#X connect 194 0 195 0;
+#X connect 195 0 193 0;
+#X connect 197 0 198 0;
+#X connect 198 0 185 1;
